@@ -26,5 +26,9 @@
   "homepage": "https://github.com/DavidKD5/contact-card#readme",
   "dependencies": {
     "concurrently": "^7.4.0"
-  }
+  },
+  "engines": {
+    "node": "16.16"
+  },
+  "heroku-prebuild": "npm install --dev"
 }
