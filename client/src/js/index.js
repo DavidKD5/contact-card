@@ -1,7 +1,7 @@
 import "./form";
 import { Tooltip, Toast, Popover } from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { initdb, getDb, postDb } from "./database";
+import { initdb, getDb, postDb, deleteDb } from "./database";
 import { fetchCards } from "./cards";
 import Logo from "../images/logo.png";
 import Bear from "../images/bear.png";
@@ -53,3 +53,24 @@ form.addEventListener("submit", (event) => {
 
 // Import CSS files
 import "../css/index.css";
+
+deleteCard = (e) => {
+  // Delete the card
+  deleteDb();
+  // Reload the DOM
+  fetchCards();
+};
+
+// Grabs the id from the button element attached to the contact card.
+let id = parseInt(e.id);
+// Delete the card
+deleteDb(id);
+
+window.deleteCard = (e) => {
+  // Grabs the id from the button element attached to the contact card.
+  let id = parseInt(e.id);
+  // Delete the card
+  deleteDb(id);
+  // Reload the DOM
+  fetchCards();
+};
